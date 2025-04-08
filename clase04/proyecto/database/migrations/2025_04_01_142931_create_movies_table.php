@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('movies', function (Blueprint $table) {
+
             $table->id('movie_id');
 
             $table->string('title', 100);
             $table->unsignedInteger('price');
-            // $table->integer('price')->unsigned();
+            //$table->integer('price')->unsigned();
             $table->date('release_date');
             $table->text('synopsis');
-
 
             $table->timestamps();
         });

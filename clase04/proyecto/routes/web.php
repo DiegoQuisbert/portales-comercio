@@ -10,3 +10,7 @@ Route::get('/quienes-somos', [\App\Http\Controllers\HomeController::class, 'abou
 
 Route::get('/peliculas/listado', [\App\Http\Controllers\MovieController::class, 'index'])
     ->name('movies.index');
+
+Route::get('peliculas/{id}', [\App\Http\Controllers\MovieController::class, 'view'])
+    ->name('movies.view')
+    ->whereNumber('id');
