@@ -14,3 +14,9 @@ Route::get('/peliculas/listado', [\App\Http\Controllers\MovieController::class, 
 Route::get('peliculas/{id}', [\App\Http\Controllers\MovieController::class, 'view'])
     ->name('movies.view')
     ->whereNumber('id');
+
+Route::get('peliculas/publicar', [\App\Http\Controllers\MovieController::class, 'create'])
+    ->name('movies.create');
+
+Route::post('peliculas/create', [\App\Http\Controllers\MovieController::class, 'store'])
+    ->name('movies.store');

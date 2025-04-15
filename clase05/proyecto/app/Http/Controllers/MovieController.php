@@ -21,6 +21,23 @@ class MovieController extends Controller
         return view('movies.view', [
             'movie' => Movie::findOrFail($id)
         ]);
+
+    }
+
+    public function create()
+    {
+        return view('movies.create');
+    }
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+
+        Movie::create($input);
+
+        return redirect()
+            ->route('movies.index')
+            ->with('feedback.message', 'La película <b>'. e($input['title']) .'</b> se publicó exitosamente');
     }
 
 }
